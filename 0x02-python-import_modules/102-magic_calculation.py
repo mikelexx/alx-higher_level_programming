@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-def magic_calculation(n, m):
+def magic_calculation(a, b):
     from magic_calculation_102 import add, sub
 
-    if (n < m):
-        d = add(n, m)
+    if (a < b):
+        c = add(a, b)
         for i in range(4, 6):
-            d = add(n, m)
-        return d
+            c = add(a, b)
+        return c
     else:
-        return sub(n, m)
+        return sub(a, b)
