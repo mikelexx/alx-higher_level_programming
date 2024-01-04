@@ -1,7 +1,13 @@
 #include "lists.h"
+/**
+ * insert_node - inserts a number into a sorted linked_list
+ * @head: head of linked_list
+ * @number: number to be inserted
+ * Return: address of inserted node
+ */
 listint_t *insert_node(listint_t **head, int number)
 {
-	listint_t *curr = *head, *newnode = NULL, *holder = NULL;
+	listint_t *curr = *head, *prev = NULL, *newnode = NULL;
 
 	if (head == NULL)
 		return (NULL);
@@ -17,28 +23,15 @@ listint_t *insert_node(listint_t **head, int number)
 	if (curr->n > number)
 	{
 		newnode->next =  curr;
+		*head = newnode;
 		return (newnode);
 	}
-	while (curr != NULL)
+	while (curr && curr->n <= number)
 	{
-		if (curr->next == NULL)
-		{
-			if (curr->n < number)
-				curr->next = newnode;
-			else
-			{
-				newnode->next = curr;
-			}
-			return (newnode);
-		}
-		if (curr->n <= number && curr->next->n >= number)
-		{
-			holder = curr->next;
-			curr->next = newnode;
-			newnode->next = holder;
-			return (newnode);
-		}
+		prev = curr;
 		curr = curr->next;
 	}
-	return (NULL);
+	prev->next = newnode;
+	newnode->next = curr;
+	return (newnode);
 }
