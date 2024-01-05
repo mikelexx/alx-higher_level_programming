@@ -9,4 +9,4 @@ def add_tuple(tuple_a=(), tuple_b=()):
         c, d = tuple_b[0], tuple_b[1]
     elif len(tuple_b) == 1:
         c = tuple_b[0]
-    return (a+c, b+d)
+    return (a+c, b+d,)
