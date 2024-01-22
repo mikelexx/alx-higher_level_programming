@@ -4,7 +4,6 @@ def safe_print_division(a, b):
         x = a / b
         return x
     except Exception:
-        print("i get executed")
         x = None
         return None
     finally:
