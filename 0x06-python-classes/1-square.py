@@ -6,10 +6,10 @@ Contains class that defines a square shape.
 """
 
 
-
 class Square:
     """
-    Class Square that defines a square by a private instance attribute: size.
+    Class Square that defines a square by a private
+    instance attribute: size.
     Args:
         size: to be used as dimensoin of square.
 
