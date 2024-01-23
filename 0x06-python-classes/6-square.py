@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-""" 5-square.py
-This module defines a square based on module 4-square.py.
+""" 6-square.py
+This module defines a square based on module 5-square.py.
 """
 
 
