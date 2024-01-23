@@ -1,5 +1,5 @@
 #!/usr/bin/python2
-""" 1-square.py.
+""" 1-square.py
 This module contains a clas Square that defines a square.
 
 """
