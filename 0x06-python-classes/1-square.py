@@ -1,4 +1,11 @@
 #!/usr/bin/python3
+""" 1-square.py
+
+Contains class that defines a square shape.
+
+"""
+
+
 
 class Square:
     """
