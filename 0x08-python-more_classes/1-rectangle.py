@@ -16,6 +16,8 @@ class Rectangle:
     """
 
     def __init__(self, width=0, height=0):
+        self.__width = width
+        self.__height = height
         if not isinstance(width, int):
             raise TypeError("width must be an integer")
         elif width < 0:
