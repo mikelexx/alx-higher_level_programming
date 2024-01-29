@@ -29,7 +29,7 @@ class Rectangle:
         substr = ""
         for i in range(self.__height):
             for j in range(self.__width):
-                substr += str(type(self).print_symbol)
+                substr += str(self.print_symbol)
             if i != self.__height - 1:
                 substr += '\n'
         return substr
