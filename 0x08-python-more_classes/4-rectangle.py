@@ -28,8 +28,7 @@ class Rectangle:
         return substr
 
     def __repr__(self):
-        return "Rectangle" + "(" + "{}".format(self.__width) \
-                + "," + "{}".format(self.__height) + ")"
+        return "Rectangle({}, {})".format(self.__width, self.height)
 
     def __init__(self, width=0, height=0):
         self.__width = width
