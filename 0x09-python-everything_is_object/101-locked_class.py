@@ -1,5 +1,8 @@
 """
-This class contains locked class.
+This module contains locked class which can't allow assignment \
+of any other attribure to its object except id the attribure is \
+first_name.
+
 """
 
 
