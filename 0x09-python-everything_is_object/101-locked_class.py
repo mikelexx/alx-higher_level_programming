@@ -1,5 +1,5 @@
 """
-This class contains locked class
+This class contains locked class.
 """
 
 
@@ -10,6 +10,15 @@ class LockedClass:
     """
 
     def __setattr__(self, name, value):
+        """
+        This function checks attribure before assigning it to object.
+        Args:
+            name: attribure to be assigned to object.
+            value: value of that attribute.
+        Raises:
+            AttributeError: if attribure is not first_name.
+        """
+
         if name != "first_name":
             raise AttributeError
         ("'LockedClass' object has no attribute '{}'".format(name))
