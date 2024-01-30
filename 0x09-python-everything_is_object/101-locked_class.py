@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 This module contains locked class which can't allow assignment \
 of any other attribure to its object except id the attribure is \
@@ -23,6 +24,6 @@ class LockedClass:
         """
 
         if name != "first_name":
-            raise AttributeError
-        ("'LockedClass' object has no attribute '{}'".format(name))
+            raise AttributeError(
+                    "'LockedClass' object has no attribute '{}'".format(name))
         self.__dict__[name] = value
