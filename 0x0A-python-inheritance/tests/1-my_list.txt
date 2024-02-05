@@ -28,7 +28,23 @@ You can assume that all the elements of the list will be of type int
 >>> print_sorted([1, 2])
 [1, 2]
 
+>>> print_sorted([1, 1])
+[1, 1]
 
+>>> print_sorted([1, 1, 1])
+[1, 1, 1]
+
+>>> print_sorted([1, True, 1])
+[1, True, 1]
+
+>>> print_sorted([1, False, 0])
+[False, 0, 1]
+
+>>> print_sorted([0, 0, 0])
+[0, 0, 0]
+
+>>> print_sorted([True, False])
+[False, True]
 
 
 
