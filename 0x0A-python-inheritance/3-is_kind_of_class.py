@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 """
-contains function checks if  if the object is an instance of, or if the object is an instance of a class that inherited from.
+contains function checks if \
+        the object is an instance of, or if\
+        the object is an instance of a class that inherited from.
 """
+
 
 def is_kind_of_class(obj, a_class):
     """
