@@ -5,6 +5,10 @@ constains a class based on module 6-base_geometry.
 
 
 class BaseGeometry():
+    """
+    This module contains unimplemented fuction and integer validator\
+            function.
+        """
     def area(self):
         """
         this function  does nothing
