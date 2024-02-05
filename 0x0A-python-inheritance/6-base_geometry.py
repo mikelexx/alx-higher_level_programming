@@ -4,7 +4,7 @@ contains class based on module 5-base_geometry
 """
 
 
-class BaseGeometry:
+class BaseGeometry():
 
     def area(self):
         """
