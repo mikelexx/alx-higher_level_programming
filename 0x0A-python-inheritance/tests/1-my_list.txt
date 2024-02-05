@@ -16,6 +16,17 @@ You can assume that all the elements of the list will be of type int
 >>> print_sorted([2, 1, 2])
 [1, 2, 2]
 
+>>> print_sorted([])
+[]
+
+>>> print_sorted([1])
+[1]
+
+>>> print_sorted([-1])
+[-1]
+
+>>> print_sorted([1, 2])
+[1, 2]
 
 
 
