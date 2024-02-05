@@ -26,4 +26,4 @@ class Rectangle(BaseGeometry):
             raise e
         else:
             self.__width = width
-            self.___height = height
+            self.__height = height
