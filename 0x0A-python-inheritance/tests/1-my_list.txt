@@ -1,0 +1,24 @@
+==============
+Tests for Public instance method: def print_sorted(self): that prints the list, but sorted (ascending sort)
+You can assume that all the elements of the list will be of type int
+==============
+>>> print_sorted = __import__('1-my_list').MyList.print_sorted
+
+>>> print_sorted([-1 ,-2, 1])
+[-2, -1, 1]
+
+>>> print_sorted([1, 1, 1])
+[1, 1, 1]
+
+>>> print_sorted([1, 1, 2])
+[1, 1, 2]
+
+>>> print_sorted([2, 1, 2])
+[1, 2, 2]
+
+
+
+
+
+
+
