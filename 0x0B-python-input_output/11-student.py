@@ -41,5 +41,5 @@ class Student():
         Args:
             json: will always be a dictionary
         """
-        for key, val in json.items():
-            self.key = val
+        if json:
+            self.__dict__ = json
