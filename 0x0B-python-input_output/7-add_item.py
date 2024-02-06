@@ -1,4 +1,4 @@
-#!/bin/python3
+#!/usr/bin/python3
 """
 this script adds all arguments to a Python list, and then\
         save them to a file:
