@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """
 contains  a function that reads a \
         text file (UTF8) and prints it to stdout:
