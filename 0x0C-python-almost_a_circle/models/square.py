@@ -1,4 +1,4 @@
-#!/user/bin/python3
+#!/usr/bin/python3
 """
 Write the class Square that inherits from Rectangle:
 """
