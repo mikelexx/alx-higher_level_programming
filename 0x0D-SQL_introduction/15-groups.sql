@@ -7,4 +7,5 @@
 -- The database name will be passed as an argument to the mysql command
 SELECT score, COUNT(score) as number
 FROM second_table
-GROUP BY score;
+GROUP BY score
+ORDER BY number DESC;
