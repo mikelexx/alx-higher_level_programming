@@ -1,11 +1,8 @@
 #!/usr/bin/node
 const args = process.argv;
-let count = 2;
-if (typeof args[count] === 'undefined'){
-	console.log('No argument');
-	return;
-}
-while (typeof args[count] !== 'undefined') {
+const count = 2;
+if (typeof args[count] === 'undefined') {
+  console.log('No argument');
+} else {
   console.log(args[count]);
-  count++;
 }
