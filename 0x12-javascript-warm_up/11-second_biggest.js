@@ -6,7 +6,7 @@ if (args.length <= 3) {
 } else {
   while (count < 2) {
     for (let i = 2; i < args.length - 1; i++) {
-      if (args[i] > args[i + 1]) {
+      if (parseInt(args[i]) > parseInt(args[i + 1])) {
         const tmp = args[i];
         args[i] = args[i + 1];
         args[i + 1] = tmp;
