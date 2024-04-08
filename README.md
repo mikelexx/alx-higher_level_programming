@@ -1,1 +1,1 @@
-Learning python and javasript
+learning python
