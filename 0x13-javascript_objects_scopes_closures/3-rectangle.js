@@ -7,7 +7,7 @@ module.exports = class Rectangle {
     }
   }
 
-  print = () => {
+  print () {
     let tmp = 'X';
     for (let counter = 1; counter < this.width; counter++) {
       tmp = tmp.concat('X');
@@ -15,5 +15,5 @@ module.exports = class Rectangle {
     for (let counter = 0; counter < this.height; counter++) {
       console.log(tmp);
     }
-  };
+  }
 };
