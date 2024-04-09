@@ -40,7 +40,9 @@ console.log(r1.constructor);
 guillaume@ubuntu:~/0x13$ ./0-main.js
 Rectangle {}
 [Class: Rectangle]
-guillaume@ubuntu:~/0x13$ ```
+guillaume@ubuntu:~/0x13$ 
+
+```
 ======================================
 1. Rectangle #1
 
@@ -80,4 +82,6 @@ Rectangle { width: 2, height: -3 }
 Rectangle { width: 2, height: undefined }
 2
 undefined
-guillaume@ubuntu:~/0x13$ ```
+guillaume@ubuntu:~/0x13$
+
+```
