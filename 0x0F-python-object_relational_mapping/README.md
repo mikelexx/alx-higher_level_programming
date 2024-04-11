@@ -409,7 +409,7 @@ guillaume@ubuntu:~/0x0F$ ./7-model_state_fetch_all.py root root hbtn_0e_6_usa
 5: Nevada
 guillaume@ubuntu:~/0x0F$
 ```
-file: ```7-model_state_fetch_all.py```
+file: `7-model_state_fetch_all.py`
 8. First state
 mandatory
 Write a script that prints the first State object from the database hbtn_0e_6_usa
@@ -428,7 +428,7 @@ guillaume@ubuntu:~/0x0F$ ./8-model_state_fetch_first.py root root hbtn_0e_6_usa
 1: California
 guillaume@ubuntu:~/0x0F$
 ```
-file ``` 8-model_state_fetch_first.py ```
+file ` 8-model_state_fetch_first.py `
 9. Contains `a`
 mandatory
 
@@ -468,7 +468,7 @@ guillaume@ubuntu:~/0x0F$ ./10-model_state_my_get.py root root hbtn_0e_6_usa Illi
 Not found
 guillaume@ubuntu:~/0x0F$
 ```
-file: ```10-model_state_my_get.py```
+file: `10-model_state_my_get.py`
 11. Add a new state
 mandatory
 Write a script that adds the State object “Louisiana” to the database hbtn_0e_6_usa
@@ -491,7 +491,7 @@ guillaume@ubuntu:~/0x0F$ ./7-model_state_fetch_all.py root root hbtn_0e_6_usa
 6: Louisiana
 guillaume@ubuntu:~/0x0F$
 ```
-file: ```11-model_state_insert.py```
+file: `11-model_state_insert.py`
 12. Update a state
 mandatory
 Write a script that changes the name of a State object from the database hbtn_0e_6_usa
@@ -513,7 +513,7 @@ guillaume@ubuntu:~/0x0F$ ./7-model_state_fetch_all.py root root hbtn_0e_6_usa
 6: Louisiana
 guillaume@ubuntu:~/0x0F$
 ```
-file: ```12-model_state_update_id_2.py```
+file: `12-model_state_update_id_2.py`
 13. Delete states
 mandatory
 Write a script that deletes all State objects with a name containing the letter a from the database hbtn_0e_6_usa
@@ -530,4 +530,71 @@ guillaume@ubuntu:~/0x0F$ ./7-model_state_fetch_all.py root root hbtn_0e_6_usa
 4: New York
 guillaume@ubuntu:~/0x0F$
 ```
-file: ```13-model_state_delete_a.py```
+file: `13-model_state_delete_a.py`
+14. Cities in state
+mandatory
+Write a Python file similar to model_state.py named model_city.py that contains the class definition of a City.
+
+City class:
+	- inherits from Base (imported from model_state)
+	- links to the MySQL table cities
+	- class attribute id that represents a column of an auto-generated, unique integer, can’t be null and is a primary key
+	- class attribute name that represents a column of a string of 128 characters and can’t be null
+	- class attribute state_id that represents a column of an integer, can’t be null and is a foreign key to states.id
+	- You must use the module SQLAlchemy
+Next, write a script 14-model_city_fetch_by_state.py that prints all City objects from the database hbtn_0e_14_usa:
+
+- Your script should take 3 arguments: mysql username, mysql password and database name
+- You must use the module SQLAlchemy
+- You must import State and Base from model_state - from model_state import Base, State
+- Your script should connect to a MySQL server running on localhost at port 3306
+- Results must be sorted in ascending order by cities.id
+- Results must be display as they are in the example below (<state name>: (<city id>) <city name>)
+- Your code should not be executed when imported
+```
+guillaume@ubuntu:~/0x0F$ cat 14-model_city_fetch_by_state.sql
+-- Create database hbtn_0e_14_usa, tables states and cities + some data
+CREATE DATABASE IF NOT EXISTS hbtn_0e_14_usa;
+USE hbtn_0e_14_usa;
+
+CREATE TABLE IF NOT EXISTS states (
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(256) NOT NULL,
+    PRIMARY KEY (id)
+);
+INSERT INTO states (name) VALUES ("California"), ("Arizona"), ("Texas"), ("New York"), ("Nevada");
+
+CREATE TABLE IF NOT EXISTS cities (
+    id INT NOT NULL AUTO_INCREMENT,
+    state_id INT NOT NULL,
+    name VARCHAR(256) NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY(state_id) REFERENCES states(id)
+);
+INSERT INTO cities (state_id, name) VALUES (1, "San Francisco"), (1, "San Jose"), (1, "Los Angeles"), (1, "Fremont"), (1, "Livermore");
+INSERT INTO cities (state_id, name) VALUES (2, "Page"), (2, "Phoenix");
+INSERT INTO cities (state_id, name) VALUES (3, "Dallas"), (3, "Houston"), (3, "Austin");
+INSERT INTO cities (state_id, name) VALUES (4, "New York");
+INSERT INTO cities (state_id, name) VALUES (5, "Las Vegas"), (5, "Reno"), (5, "Henderson"), (5, "Carson City");
+
+guillaume@ubuntu:~/0x0F$ cat 14-model_city_fetch_by_state.sql | mysql -uroot -p
+Enter password:
+guillaume@ubuntu:~/0x0F$ ./14-model_city_fetch_by_state.py root root hbtn_0e_14_usa
+California: (1) San Francisco
+California: (2) San Jose
+California: (3) Los Angeles
+California: (4) Fremont
+California: (5) Livermore
+Arizona: (6) Page
+Arizona: (7) Phoenix
+Texas: (8) Dallas
+Texas: (9) Houston
+Texas: (10) Austin
+New York: (11) New York
+Nevada: (12) Las Vegas
+Nevada: (13) Reno
+Nevada: (14) Henderson
+Nevada: (15) Carson City
+guillaume@ubuntu:~/0x0F$
+```
+File: `model_city.py`, `14-model_city_fetch_by_state.py`
