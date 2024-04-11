@@ -19,6 +19,10 @@ Base = declarative_base()
 
 
 class City(Base):
+    """
+    This class maps the city objects to the city tables  entries\
+    in the mysql database.
+    """
     __tablename__ = "cities"
     id = Column(Integer, autoincrement=True,
                 nullable=False, primary_key=True, unique=True)

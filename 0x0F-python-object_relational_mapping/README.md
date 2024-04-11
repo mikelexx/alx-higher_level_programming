@@ -383,6 +383,7 @@ states  CREATE TABLE `states` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `nam
 guillaume@ubuntu:~/0x0F$
 ```
 File: ```model_state.py```
+
 7. All states via SQLAlchemy
 mandatory
 Write a script that lists all State objects from the database hbtn_0e_6_usa
@@ -410,6 +411,7 @@ guillaume@ubuntu:~/0x0F$ ./7-model_state_fetch_all.py root root hbtn_0e_6_usa
 guillaume@ubuntu:~/0x0F$
 ```
 file: `7-model_state_fetch_all.py`
+
 8. First state
 mandatory
 Write a script that prints the first State object from the database hbtn_0e_6_usa
@@ -429,6 +431,7 @@ guillaume@ubuntu:~/0x0F$ ./8-model_state_fetch_first.py root root hbtn_0e_6_usa
 guillaume@ubuntu:~/0x0F$
 ```
 file ` 8-model_state_fetch_first.py `
+
 9. Contains `a`
 mandatory
 
@@ -449,6 +452,7 @@ guillaume@ubuntu:~/0x0F$ ./9-model_state_filter_a.py root root hbtn_0e_6_usa
 5: Nevada
 guillaume@ubuntu:~/0x0F$
 ```
+
 10. Get a state
 mandatory
 Write a script that prints the State object with the name passed as argument from the database hbtn_0e_6_usa
@@ -469,6 +473,7 @@ Not found
 guillaume@ubuntu:~/0x0F$
 ```
 file: `10-model_state_my_get.py`
+
 11. Add a new state
 mandatory
 Write a script that adds the State object “Louisiana” to the database hbtn_0e_6_usa
@@ -492,6 +497,7 @@ guillaume@ubuntu:~/0x0F$ ./7-model_state_fetch_all.py root root hbtn_0e_6_usa
 guillaume@ubuntu:~/0x0F$
 ```
 file: `11-model_state_insert.py`
+
 12. Update a state
 mandatory
 Write a script that changes the name of a State object from the database hbtn_0e_6_usa
@@ -514,6 +520,7 @@ guillaume@ubuntu:~/0x0F$ ./7-model_state_fetch_all.py root root hbtn_0e_6_usa
 guillaume@ubuntu:~/0x0F$
 ```
 file: `12-model_state_update_id_2.py`
+
 13. Delete states
 mandatory
 Write a script that deletes all State objects with a name containing the letter a from the database hbtn_0e_6_usa
@@ -531,6 +538,7 @@ guillaume@ubuntu:~/0x0F$ ./7-model_state_fetch_all.py root root hbtn_0e_6_usa
 guillaume@ubuntu:~/0x0F$
 ```
 file: `13-model_state_delete_a.py`
+
 14. Cities in state
 mandatory
 Write a Python file similar to model_state.py named model_city.py that contains the class definition of a City.
