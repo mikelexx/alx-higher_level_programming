@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Write a script that lists all cities from the database hbtn_0e_4_usa
+"""
 if __name__ != "__main__":
     exit()
 import sys
