@@ -14,7 +14,7 @@ if __name__ == "__main__":
                          passwd=password, db=database_name)
     cur = db.cursor()
     row_count = cur.execute(
-            ("SELECT * FROM states WHERE "
-             "name LIKE 'N%' ORDER BY id"))
+            ("SELECT * FROM `states` WHERE "
+             "`name` LIKE 'N%' ORDER BY `id`"))
     for entry in cur.fetchall():
         print(entry)
