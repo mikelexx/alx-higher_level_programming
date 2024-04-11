@@ -7,7 +7,7 @@ Classes mapped using the Declarative system are defined in terms \
 """
 from sqlalchemy import Column
 from sqlalchemy import Integer, String
-from sqlalchemy.orm import relationship, backref
+from sqlalchemy.orm import relationship
 from relationship_city import Base, City
 import sys
 
@@ -26,4 +26,4 @@ class State(Base):
                 nullable=False, primary_key=True, unique=True)
     name = Column(String(128), nullable=False)
     cities = relationship("City", backref="state",
-                          cascade="all, delete, delete-orphan")
+                          cascade="all, delete")
