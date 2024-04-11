@@ -1,7 +1,9 @@
 **Before you start…**
+---
 Please make sure your MySQL server is in 8.0 -> How to install MySQL 8.0 in Ubuntu 20.04
 
 **Background Context**
+---
 In this project, you will link two amazing worlds: Databases and Python!
 
 In the first part, you will use the module MySQLdb to connect to a MySQL database and execute your SQL queries.
@@ -338,3 +340,110 @@ guillaume@ubuntu:~/0x0F$ ./5-filter_cities.py root root hbtn_0e_4_usa Hawaii
 guillaume@ubuntu:~/0x0F$
 ```
 file: ```5-filter_cities.py```
+6. First state model
+![You can ignol sql and trust the Orm magic](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/9/f84fe6edb9436c8560996c6d72e17ea51dab28e1.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20240410%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240410T071922Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=d57427c46fe6a18f9ba3c99238612c1844e4e0af9dba87d4ea8b62230081b3f1)
+Write a python file that contains the class definition of a ```State``` and an instance``` Base = declarative_base()```:
+- ```State``` class:
+	- inherits from Base Tips
+	- links to the MySQL table states
+	- class attribute id that represents a column of an auto-generated, unique integer, can’t be null and is a primary key
+	- class attribute name that represents a column of a string with maximum 128 characters and can’t be null
+- You must use the module ```SQLAlchemy```
+- Your script should connect to a MySQL server running on localhost at port 3306
+**WARNING**: all classes who inherit from ```Base``` must be imported before calling ```Base.metadata.create_all(engine)```
+```
+	guillaume@ubuntu:~/0x0F$ cat 6-model_state.sql
+-- Create database hbtn_0e_6_usa
+CREATE DATABASE IF NOT EXISTS hbtn_0e_6_usa;
+USE hbtn_0e_6_usa;
+SHOW CREATE TABLE states;
+
+guillaume@ubuntu:~/0x0F$ cat 6-model_state.sql | mysql -uroot -p
+Enter password:
+ERROR 1146 (42S02) at line 4: Table 'hbtn_0e_6_usa.states' doesn't exist
+guillaume@ubuntu:~/0x0F$ cat 6-model_state.py
+#!/usr/bin/python3
+"""Start link class to table in database
+"""
+import sys
+from model_state import Base, State
+
+from sqlalchemy import (create_engine)
+
+if __name__ == "__main__":
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True)
+    Base.metadata.create_all(engine)
+
+guillaume@ubuntu:~/0x0F$ ./6-model_state.py root root hbtn_0e_6_usa
+guillaume@ubuntu:~/0x0F$ cat 6-model_state.sql | mysql -uroot -p
+Enter password:
+Table   Create Table
+states  CREATE TABLE `states` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `name` varchar(128) NOT NULL,\n  PRIMARY KEY (`id`)\n) ENGINE=InnoDB DEFAULT CHARSET=latin1
+guillaume@ubuntu:~/0x0F$
+```
+File: ```model_state.py```
+7. All states via SQLAlchemy
+mandatory
+Write a script that lists all State objects from the database hbtn_0e_6_usa
+
+- Your script should take 3 arguments: mysql username, mysql password and database name
+- You must use the module SQLAlchemy
+- You must import State and Base from model_state - from model_state import Base, State
+- Your script should connect to a MySQL server running on localhost at port 3306
+- Results must be sorted in ascending order by states.id
+- The results must be displayed as they are in the example below
+- Your code should not be executed when imported
+```
+guillaume@ubuntu:~/0x0F$ cat 7-model_state_fetch_all.sql
+-- Insert states
+INSERT INTO states (name) VALUES ("California"), ("Arizona"), ("Texas"), ("New York"), ("Nevada");
+
+guillaume@ubuntu:~/0x0F$ cat 7-model_state_fetch_all.sql | mysql -uroot -p hbtn_0e_6_usa
+Enter password:
+guillaume@ubuntu:~/0x0F$ ./7-model_state_fetch_all.py root root hbtn_0e_6_usa
+1: California
+2: Arizona
+3: Texas
+4: New York
+5: Nevada
+guillaume@ubuntu:~/0x0F$
+```
+file: ```7-model_state_fetch_all.py```
+8. First state
+mandatory
+Write a script that prints the first State object from the database hbtn_0e_6_usa
+
+- Your script should take 3 arguments: mysql username, mysql password and database name
+- You must use the module SQLAlchemy
+- You must import State and Base from model_state - from model_state import Base, State
+- Your script should connect to a MySQL server running on localhost at port 3306
+- The state you display must be the first in states.id
+- You are not allowed to fetch all states from the database before displaying the result
+- The results must be displayed as they are in the example below
+- If the table states is empty, print Nothing followed by a new line
+- Your code should not be executed when imported
+```
+guillaume@ubuntu:~/0x0F$ ./8-model_state_fetch_first.py root root hbtn_0e_6_usa
+1: California
+guillaume@ubuntu:~/0x0F$
+```
+file ```8-model_state_fetch_first.py```
+9. Contains `a`
+mandatory
+Write a script that lists all State objects that contain the letter a from the database hbtn_0e_6_usa
+- 
+- Your script should take 3 arguments: mysql username, mysql password and database name
+- You must use the module SQLAlchemy
+- You must import State and Base from model_state - from model_state import Base, State
+- Your script should connect to a MySQL server running on localhost at port 3306
+- Results must be sorted in ascending order by states.id
+- The results must be displayed as they are in the example below
+- Your code should not be executed when imported
+```
+guillaume@ubuntu:~/0x0F$ ./9-model_state_filter_a.py root root hbtn_0e_6_usa
+1: California
+2: Arizona
+3: Texas
+5: Nevada
+guillaume@ubuntu:~/0x0F$
+```
