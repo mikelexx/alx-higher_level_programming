@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-THis module enables to talking to the database using Session.
-The ORM’s “handle” to the database is the Session.
+script that lists all State objects that contain the letter a\
+        from the database hbtn_0e_6_usa
 """
 if __name__ == "__main__":
     from model_state import Base, State
