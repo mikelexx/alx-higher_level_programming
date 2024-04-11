@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+THis module contains City class mapper that inherits the\
+        Base class for it to be able to be mapped to the cities\
+        table in the database.
+"""
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column
 from sqlalchemy import Integer, String
