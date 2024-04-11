@@ -15,6 +15,6 @@ if __name__ == "__main__":
                          user=username, passwd=password, db=database_name)
     cur = db.cursor()
     table = cur.execute("SELECT * FROM states WHERE name = '{}' ORDER BY id"
-                        .format(match_string))
+                        .format(match_string.strip("'")))
     for row in cur.fetchall():
         print(row)
