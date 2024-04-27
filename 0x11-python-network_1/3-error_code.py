@@ -6,12 +6,11 @@ It also manages urllib.error.HTTPError exceptions and print:
 Error code: followed by the HTTP status code
 """
 if __name__ == "__main__":
-    from urllib.request import Request, urlopen
-    import sys
-    from urllib.error import URLError
-    req = Request(sys.argv[1])
+    import urllib.request
     try:
-        response = urlopen(req)
+        with urllib.request.urlopen('http://python.org/') as response:
+           html_bytes = response.read()
+           print(html_bytes.decode('utf-8'))
     except URLError as e:
         if hasattr(e, 'code'):
             print('Error code: ', e.code)
