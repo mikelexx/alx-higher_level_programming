@@ -7,11 +7,12 @@ Error code: followed by the HTTP status code
 """
 if __name__ == "__main__":
     import urllib.request
-    import urllib.error
+    from urllib.error import URLError
     import sys
     try:
         with urllib.request.urlopen(sys.argv[1]) as response:
             html_bytes = response.read()
             print(html_bytes.decode('utf-8'))
-    except urllib.error.HTTPError as e:
-        print('Error code: {} '.format(e.code))
+    except URLError as e:
+        if hasattr(e, 'code'):
+            print('Error code: {}'.format(e.code))
