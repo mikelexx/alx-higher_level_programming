@@ -9,8 +9,7 @@ if __name__ == "__main__":
     import urllib.request
     try:
         with urllib.request.urlopen('http://python.org/') as response:
-           html_bytes = response.read()
-           print(html_bytes.decode('utf-8'))
-    except URLError as e:
-        if hasattr(e, 'code'):
-            print('Error code: ', e.code)
+            html_bytes = response.read()
+            print(html_bytes.decode('utf-8'))
+    except urllib.error.HTTPError as e:
+        print('Error code: {} '.format(e.code))
