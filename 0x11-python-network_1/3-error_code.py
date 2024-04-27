@@ -7,8 +7,10 @@ Error code: followed by the HTTP status code
 """
 if __name__ == "__main__":
     import urllib.request
+    import urllib.error
+    import sys
     try:
-        with urllib.request.urlopen('http://python.org/') as response:
+        with urllib.request.urlopen(sys.argv[1]) as response:
             html_bytes = response.read()
             print(html_bytes.decode('utf-8'))
     except urllib.error.HTTPError as e:
