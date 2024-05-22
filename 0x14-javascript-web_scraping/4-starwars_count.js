@@ -6,9 +6,9 @@ request(process.argv[2], (err, res, data) => {
   }
   if (data) {
     let count = 0;
-    JSON.parse(data).results.forEach(movie => {
-      movie.characters.forEach(char => {
-        if (char === 'https://swapi-api.alx-tools.com/api/people/18/') {
+    JSON.parse(data).results.forEach((movie) => {
+      movie.characters.forEach((char) => {
+        if (/18/.test(char)) {
           count++;
         }
       });
