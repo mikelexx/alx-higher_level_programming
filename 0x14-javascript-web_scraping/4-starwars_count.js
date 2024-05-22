@@ -8,7 +8,7 @@ request('https://swapi-api.alx-tools.com/api/films/', (err, res, data) => {
     let count = 0;
     JSON.parse(data).results.forEach(movie => {
       movie.characters.forEach(char => {
-        if (char === 'https://swapi-api.alx-tools.com/api/people/18/') {
+        if (/18/.test(char)) {
           count++;
         }
       });
