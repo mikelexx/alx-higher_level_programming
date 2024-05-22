@@ -33,6 +33,8 @@ $ sudo npm install semistandard --global
 $ sudo npm install request --global
 $ export NODE_PATH=/usr/lib/node_modules
 ```
+-[if you have difficulty in installing requests](https://stackoverflow.com/questions/16482600/node-js-cannot-find-module-request)
+
 Notes: Request module has been deprecated since February 2020 - the team is considering alternative to replace this module - however, it’s a really simple and powerful module for practicing web-scraping in JavaScript (and still used a lot in the industry).
 
 **Tasks**
@@ -75,3 +77,19 @@ Python is cool
 guillaume@ubuntu:~/0x14$
 ```
 File: `1-writeme.js`
+
+2. Status code
+mandatory
+Write a script that display the status code of a GET request.
+
+- The first argument is the URL to request (GET)
+- The status code must be printed like this: code: <status code>
+- You must use the module request
+```
+guillaume@ubuntu:~/0x14$ ./2-statuscode.js https://alx-intranet.hbtn.io/status
+code: 200
+guillaume@ubuntu:~/0x14$ ./2-statuscode.js https://alx-intranet.hbtn.io/doesnt_exist
+code: 404
+guillaume@ubuntu:~/0x14$
+```
+File: `2-statuscode.js`
